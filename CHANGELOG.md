@@ -8,10 +8,21 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
-## [Unreleased]
+## [0.2.0] - 2026-10-17
 
 ### Added
-- TBD
+- **High-Speed Rust Core Engine (`rust-core/`):** Implemented sub-millisecond network governance evaluation, adaptive supervision, and SHA-256 proof-chain verification in native Rust.
+- **Native Rust CLI (`jfp-paradox`):** Added command-line utility with commands:
+  - `jfp-paradox eval <metrics.yaml|json>` — instant network health verdict.
+  - `jfp-paradox verify-chain <proof_log.jsonl>` — tamper-evident chain verification.
+  - `jfp-paradox explain <metrics>` — executive risk assessment.
+- **Universal Multi-Format Support:** First-class parsing of both **YAML** and **JSON** metric payloads and configurations.
+- **Standard Test Runner (`tests/run_tests.py`):** Added a self-contained test runner without external pytest runtime dependency.
+
+### Fixed
+- **Packaging Syntax Fixes:** Repaired broken `pyproject.toml` dependencies and metadata blocks.
+- **Module Packaging:** Added `__init__.py` modules across `daemon/`, `shared/`, `console/`, `tools/`, and `tests/`.
+- **Governor Criticality Logic:** Fixed critical breach logic in Governor evaluation to ensure any `*_critical` event triggers the appropriate defensive state.
 
 ---
 
