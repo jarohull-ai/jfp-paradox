@@ -1,0 +1,10 @@
+ts: "2026-10-17T12:00:01Z"
+latency_ms: 540.0
+packet_loss_pct: 3.5
+jitter_ms: 85.0
+bandwidth_utilization_pct: 88.0
+sensor_health:
+  ping_ok: true
+  tcp_ok: true
+  interfaces_ok: true
+  routes_ok: true

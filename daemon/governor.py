@@ -109,7 +109,7 @@ class GovernorConstitution:
 
         if latency >= self.latency_critical_ms:
             breached.append("latency_critical")
-            health_score -= 40.0
+            health_score -= 55.0
         elif latency >= self.latency_high_ms:
             breached.append("latency_high")
             health_score -= 20.0
@@ -133,7 +133,8 @@ class GovernorConstitution:
             health_score -= 20.0
 
         health_score = max(0.0, min(100.0, health_score))
-        is_critical = health_score < 50.0 or len(breached) >= 2
+        has_critical_breach = any(b.endswith("_critical") for b in breached)
+        is_critical = health_score < 50.0 or len(breached) >= 2 or has_critical_breach
 
         reason = "healthy"
         if breached:

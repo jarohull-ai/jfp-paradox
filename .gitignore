@@ -57,3 +57,7 @@ node_modules/
 ui/dist/
 ui/.vite/
 ui/build/
+
+# Rust
+rust-core/target/
+

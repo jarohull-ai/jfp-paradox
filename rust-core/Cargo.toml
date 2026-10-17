@@ -1,0 +1,30 @@
+[package]
+name = "jfp-paradox-core"
+version = "0.2.0"
+edition = "2021"
+description = "High-performance Rust core for JFP-Paradox Autonomous Network Governance System"
+license = "MIT"
+repository = "https://github.com/jarohull-ai/jfp-paradox"
+
+[lib]
+name = "jfp_paradox_core"
+crate-type = ["lib", "cdylib"]
+
+[[bin]]
+name = "jfp-paradox"
+path = "src/bin/main.rs"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.9"
+sha2 = "0.10"
+chrono = { version = "0.4", features = ["serde"] }
+pyo3 = { version = "0.22", features = ["extension-module"], optional = true }
+
+[features]
+default = []
+python = ["dep:pyo3"]
+
+[dev-dependencies]
+tempfile = "3.10"

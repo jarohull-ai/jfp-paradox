@@ -23,11 +23,18 @@ import uuid
 from datetime import datetime, timezone
 from typing import Any, Dict, Optional, Tuple
 
-from actions import ActionExecutor
-from governor import GovernorConstitution
-from logger import ProofLogger
-from metrics import snapshot
-from supervisor import Supervisor
+try:
+    from daemon.actions import ActionExecutor
+    from daemon.governor import GovernorConstitution
+    from daemon.logger import ProofLogger
+    from daemon.metrics import snapshot
+    from daemon.supervisor import Supervisor
+except ImportError:
+    from actions import ActionExecutor
+    from governor import GovernorConstitution
+    from logger import ProofLogger
+    from metrics import snapshot
+    from supervisor import Supervisor
 
 
 SOCKET_PATH = os.getenv("JFP_SOCKET_PATH", "/run/jfpd.sock")

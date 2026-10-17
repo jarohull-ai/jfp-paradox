@@ -31,6 +31,50 @@ JFP PARADOX extends JFP_Console_POC's governance architecture to network domain.
 | **Streak-guard trigger** | Action only after 3 consecutive critical states (prevents false positives from transient spikes). |
 | **Auth-gated write ops** | All tuning actions require operator token. Read-only RPC methods are public. |
 | **Network metrics** | Latency (ICMP + TCP), Packet Loss, Jitter, Bandwidth, Interface Status, IP Routes, iptables rules. |
+| **High-Speed Rust Core** | Sub-millisecond evaluation engine, SHA-256 Proof Chain verification, and native CLI (`jfp-paradox`). |
+| **Multi-Format Support** | First-class native support for both **YAML** and **JSON** metric payloads and configurations. |
+
+---
+
+## ⚡ High-Speed Rust Core & CLI (`jfp-paradox`)
+
+JFP-Paradox includes an ultra-fast, zero-overhead Rust engine (`rust-core/`) that provides sub-millisecond governance evaluation, executive summaries, and cryptographic proof-chain verification.
+
+### Building & Running the CLI:
+
+```bash
+cd rust-core
+cargo build --release
+```
+
+#### 1. Evaluate Network Health (`eval` / `explain`):
+Supports both **YAML** and **JSON** metrics:
+```bash
+./rust-core/target/release/jfp-paradox eval examples/normal_metrics.yaml
+./rust-core/target/release/jfp-paradox eval examples/critical_metrics.yaml
+```
+
+Output:
+```text
+🌐 JFP-PARADOX NETWORK GOVERNANCE VERDICT
+================================================================================
+📊 Network Health Score: 20.0/100
+🚨 Critical State:       YES (Action Required)
+📌 Primary Reason:        critical_state
+⚠️  Thresholds Breached:  latency_critical, packet_loss_high, jitter_high
+📡 Sensors Online:       Latency: true, Loss: true, Jitter: true, Interfaces: true, Routes: true
+================================================================================
+```
+
+#### 2. Cryptographic Proof Chain Verification (`verify-chain`):
+Verifies tamper-evident integrity of historical action records:
+```bash
+./rust-core/target/release/jfp-paradox verify-chain /var/log/jfp/jfp_proof.jsonl
+```
+Output:
+```text
+✅ Proof Chain Verified: 100% cryptographically tamper-evident.
+```
 
 ---
 
