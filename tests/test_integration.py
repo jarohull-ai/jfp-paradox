@@ -1,6 +1,16 @@
-"""Integration tests for full JFP_PARADOX workflow."""
+try:
+    import pytest
+except ImportError:
+    class DummyPytest:
+        @staticmethod
+        def fixture(func):
+            return func
+    pytest = DummyPytest()
 
-import pytest
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import json
 import tempfile
 from pathlib import Path

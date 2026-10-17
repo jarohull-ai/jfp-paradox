@@ -23,6 +23,20 @@ jobs:
           pip install -r requirements.txt
           pip install pytest pytest-asyncio
 
-      - name: Run tests
+      - name: Run Python unit tests
         run: |
+          python3 tests/run_tests.py
           pytest tests/ -v --tb=short
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - name: Test & Lint Rust Core
+        run: |
+          cd rust-core
+          cargo check
+          cargo test
+          cargo clippy --all-targets -- -D warnings
+          cargo build --release

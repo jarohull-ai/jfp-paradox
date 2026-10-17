@@ -1,6 +1,16 @@
-"""Tests for metrics collection module."""
+try:
+    import pytest
+except ImportError:
+    class DummyPytest:
+        @staticmethod
+        def fixture(func):
+            return func
+    pytest = DummyPytest()
 
-import pytest
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from daemon.metrics import snapshot, _icmp_ping, _tcp_probe, _network_interfaces
 
 

@@ -1,6 +1,16 @@
-"""Tests for Governor Constitution and Action Executor."""
+try:
+    import pytest
+except ImportError:
+    class DummyPytest:
+        @staticmethod
+        def fixture(func):
+            return func
+    pytest = DummyPytest()
 
-import pytest
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from daemon.governor import GovernorConstitution
 from daemon.supervisor import Supervisor
 from daemon.actions import ActionExecutor
