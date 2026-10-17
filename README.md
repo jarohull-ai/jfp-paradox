@@ -20,6 +20,16 @@ JFP PARADOX extends JFP_Console_POC's governance architecture to network domain.
 
 ---
 
+> ### 💡 Evolution to v0.2.0: Designed for Developers, Hardened for Security
+> 
+> In response to developer feedback, community requests, and adoption challenges, **we decided to simplify everyone's life**:
+> - **Zero Protocol Friction (YAML & JSON):** No custom obscure format to learn. JFP Paradox v0.2.0 speaks **standard YAML** and **JSON** natively out of the box.
+> - **Sub-Millisecond Rust Engine (`rust-core/`):** We ported the core governance rules, supervisor trend-analysis, and cryptographic SHA-256 Proof Chain verification to native **Rust**, eliminating runtime latency.
+> - **Executive Verdicts (`jfp-paradox eval` / `explain`):** Instant, plain-English network health assessments that technical leads, DevOps, and CTOs can immediately interpret without wading through raw socket dumps.
+> - **Under the hood:** We preserved the full two-layer Governor/Supervisor mathematical governance formula and tamper-evident SHA-256 proof chain. Maximum rigor without the headache.
+
+---
+
 ## Key Properties
 
 | Property | How it is enforced |
